@@ -3,7 +3,12 @@ package server
 import (
 	"bufio"
 	"encoding/json"
+<<<<<<< HEAD
 	"github.com/tsandl/TYDB/leveldb"
+=======
+	"github.com/tsandl/TYDB/dbserver"
+	_ "github.com/tsandl/TYDB/dbserver/leveldb"
+>>>>>>> version_1.0.0
 	"github.com/tsandl/TYDB/log"
 	"github.com/tsandl/TYDB/util"
 	"io"
@@ -132,7 +137,11 @@ func (s *Server) opendb(conn net.Conn, r *bufio.Reader) error {
 	}
 	var data []byte
 	//db.CloseDB()
+<<<<<<< HEAD
 	db = leveldb.NewDB(key) // db 是个全局变量
+=======
+	db = dbserver.NewDB(key) // db 是个全局变量
+>>>>>>> version_1.0.0
 	if err != nil {
 		data = append(data, 0)
 	} else {
