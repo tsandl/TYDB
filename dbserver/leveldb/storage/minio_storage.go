@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	_ "github.com/tsandl/TYDB/minio"
 	"github.com/tsandl/TYDB/minioServer"
 	"io"
 	"io/ioutil"
