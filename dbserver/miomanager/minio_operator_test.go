@@ -28,7 +28,7 @@ func TestPutObject(t *testing.T) {
 	filePath := "C:\\Users\\tsxqc\\Pictures\\Camera Roll\\haha.png"
 	file, filestat := readFile1(filePath)
 	defer file.Close() // 此步来源于readFile1()，若在readfile1中使用file.close()，数据是没办法传到这边来，因此需要在此处关闭文件。
-	n, err := minClient.putObject(bucketName, objectName, file, filestat)
+	n, err := minClient.PutObject(bucketName, objectName, file, filestat)
 	fmt.Println(n, err)
 }
 func TestGetObject(t *testing.T) {

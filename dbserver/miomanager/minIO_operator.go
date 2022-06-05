@@ -57,7 +57,7 @@ func (cl *Client) removeBucket(bucketName string) error {
 	return nil
 }
 
-func (cl *Client) putObject(bucketName, objectName string, read io.Reader, objectSize int64) (l int64, err error) {
+func (cl *Client) PutObject(bucketName, objectName string, read io.Reader, objectSize int64) (l int64, err error) {
 	f, _ := cl.mClient.BucketExists(bucketName)
 	if f != true { // if bucket is not exist, return directly
 		fmt.Println("Bucket is not exist.....")

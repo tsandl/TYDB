@@ -63,21 +63,7 @@ func writeMinioSynced(bucketName string, filename string, data []byte, perm os.F
 	// 将文件系统替换成minio
 	// f, err := minio.putObject(bucketName, objectName string, read io.Reader, objectSize int64)
 	minClient := miomanager.NewMinIO("127.0.0.1:9000", "admin", "admin123456")
-	f, err := minClient.putObject(bucketName, filename, datas, -1)
-	//f, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, perm)
-	if err != nil {
-		return err
-	}
-	n, err := f.Write(data)
-	if err == nil && n < len(data) {
-		err = io.ErrShortWrite
-	}
-	if err1 := f.Sync(); err == nil {
-		err = err1
-	}
-	if err1 := f.Close(); err == nil {
-		err = err1
-	}
+	_, err := minClient.PutObject(bucketName, filename, datas, -1)
 	return err
 }
 
