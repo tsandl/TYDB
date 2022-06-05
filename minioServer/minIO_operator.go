@@ -1,11 +1,10 @@
 // 实现minio的一些基本操作
-package minio
+package minioServer
 
 import (
 	"context"
 	"fmt"
 	_minio "github.com/minio/minio-go/v6"
-
 	"io"
 )
 
@@ -15,7 +14,6 @@ type Client struct {
 
 func NewMinIO(ipaddr, accessName, accessPasswd string) *Client {
 	ssl := false // close http
-
 	// 初使化minio client对象。
 	//minioClient, err := _minio.New(ipaddr, access_Name, access_Passwd, ssl)
 	minioClient, err := _minio.New(ipaddr, accessName, accessPasswd, ssl)
