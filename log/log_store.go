@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/hashicorp/raft"
-	"github.com/syndtr/goleveldb/leveldb"
-	"github.com/syndtr/goleveldb/leveldb/opt"
+	"github.com/tsandl/TYDB/dbserver/leveldb"
+	"github.com/tsandl/TYDB/dbserver/leveldb/opt"
 )
 
 const maxBatchSize = 1024 * 1024
