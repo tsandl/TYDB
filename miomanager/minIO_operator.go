@@ -1,5 +1,5 @@
 // 实现minio的一些基本操作
-package minioServer
+package miomanager
 
 import (
 	"context"

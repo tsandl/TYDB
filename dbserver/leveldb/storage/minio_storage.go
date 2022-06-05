@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/tsandl/TYDB/minioServer"
+	"github.com/tsandl/TYDB/miomanager"
 	"io"
 	"io/ioutil"
 	"os"
@@ -62,7 +62,7 @@ func writeMinioSynced(bucketName string, filename string, data []byte, perm os.F
 	// to do
 	// 将文件系统替换成minio
 	// f, err := minio.putObject(bucketName, objectName string, read io.Reader, objectSize int64)
-	minClient := minioServer.NewMinIO("127.0.0.1:9000", "admin", "admin123456")
+	minClient := miomanager.NewMinIO("127.0.0.1:9000", "admin", "admin123456")
 	f, err := minClient.putObject(bucketName, filename, datas, -1)
 	//f, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, perm)
 	if err != nil {
