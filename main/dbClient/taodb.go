@@ -48,29 +48,30 @@ func main() {
 	//
 	//
 	//}()
-	client.OpenDB("F:\\data\\storage\\db8")
-	data4, _ := client.Get("picture2")
-	operator.WriteFile("F:\\code\\go_code\\db1\\file\\result\\picture14.jpg", data4)
-	client.CloseDB()
-	data3, _ := client.Get("picture3")
-	operator.WriteFile("F:\\code\\go_code\\db1\\file\\result\\picture13.jpg", data3)
 
-	data, err := ioutil.ReadFile("F:\\huajianmodel\\data_model\\picture\\1.jpg")
+	client.OpenDB("/root/db")
+	//data4, _ := client.Get("picture2")
+	//operator.WriteFile("F:\\code\\go_code\\db1\\file\\result\\picture14.jpg", data4)
+	//client.CloseDB()
+	//data3, _ := client.Get("picture3")
+	//operator.WriteFile("F:\\code\\go_code\\db1\\file\\result\\picture13.jpg", data3)
+
+	data, err := ioutil.ReadFile("/root/test1")
 	if err != nil {
 		fmt.Println("errors happen")
 	} else {
 		fmt.Println(len(data))
 	}
 
-	client.Set("bigPicture", data)
+	client.Set("test1", data)
 	start := time.Now()
-	for i := 0; i < 10; i++ {
-		client.Set(fmt.Sprintf("picture%d", i), data)
+	for i := 0; i < 120; i++ {
+		client.Set(fmt.Sprintf("test1%d", i), data)
 	}
 	cost := time.Since(start)
 	fmt.Printf("cost=[%s]", cost)
-	data2, _ := client.Get("picture2")
-	operator.WriteFile("F:\\code\\go_code\\db1\\file\\result\\picture999.jpg", data2)
+	data2, _ := client.Get("test11")
+	operator.WriteFile("/root/db1/test12", data2)
 	//for i := 0; i < 100; i++ {
 	//	value, _ := client.Get(fmt.Sprintf("hello%d", i))
 	//	log.Info("get key:hello%d,value=%s\n", i, string(value[:]))

@@ -6,7 +6,7 @@ import (
 	"github.com/tsandl/TYDB/dbserver/leveldb/iterator"
 	opt2 "github.com/tsandl/TYDB/dbserver/leveldb/opt"
 	"github.com/tsandl/TYDB/dbserver/leveldb/util"
-	"github.com/xuperchain/xuperchain/core/kv/s3"
+	"github.com/tsandl/TYDB/s3"
 )
 
 const (
@@ -25,21 +25,21 @@ func NewDB(dbPath string) *LevelDB {
 	opt.CompactionTableSize = 4 * MiB
 	opt.IteratorSamplingRate = 2 * MiB
 	opt.WriteBuffer = 32 * MiB
-	opts := levels3.OpenOption{
-		Bucket: "tsandyzf",
-		Path:   "/root/db",
-		Endpoint:	"http://127.0.0.1:9000",
-		Ak:     "admin",
-		Sk:     "admin123456",
-		Region: "us-east-1",
+	opts := s3.OpenOption{
+		Bucket:        "tsandyzf",
+		Path:          dbPath,
+		Endpoint:      "http://127.0.0.1:9000",
+		Ak:            "admin",
+		Sk:            "admin123456",
+		Region:        "us-east-1",
 		LocalCacheDir: "/",
 	}
-	st, err := levels3.NewS3Storage(opts)
+	st, err := s3.NewS3Storage(opts)
 	if err != nil {
 		panic(err)
 	}
 	//dbInstance, err := _leveldb.OpenFile(dbPath, opt)
-	dbInstance, err := _leveldb.OpenFile(opts, opt)
+	dbInstance, err := _leveldb.Open(st, opt)
 
 	if err != nil {
 		panic(err)
