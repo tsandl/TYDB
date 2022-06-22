@@ -1,4 +1,0 @@
-# func putObject() getObject() makeBucket() deleteObject() deleteBucket() need to be finished.
-# leveldb's ip addr should be same as minio. The only difference is port,such as minio' port is 9000, leveldb's port is 1024.
-# write process: we put the data to leveldb firstly. when the data is put into leveldb completely. we should put leveldb files to
-# minio. the bucket's name is same with db name.
