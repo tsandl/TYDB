@@ -71,11 +71,6 @@ func main() {
 	fmt.Printf("cost=[%s]", cost)
 	data2, _ := client.Get("picture2")
 	operator.WriteFile("F:\\code\\go_code\\db1\\file\\result\\picture999.jpg", data2)
-<<<<<<< HEAD
-
-=======
-	// 需要將上傳的所有文件名記錄一下，這樣從minio中讀取時知道讀取什麽
->>>>>>> version_1.0.0
 	//for i := 0; i < 100; i++ {
 	//	value, _ := client.Get(fmt.Sprintf("hello%d", i))
 	//	log.Info("get key:hello%d,value=%s\n", i, string(value[:]))
