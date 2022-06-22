@@ -4,13 +4,11 @@ import (
 	"bufio"
 	"encoding/json"
 	"github.com/tsandl/TYDB/dbserver"
-	_ "github.com/tsandl/TYDB/dbserver/leveldb"
 	"github.com/tsandl/TYDB/log"
 	"github.com/tsandl/TYDB/util"
 	"io"
 	"net"
 )
-
 type Server struct {
 }
 

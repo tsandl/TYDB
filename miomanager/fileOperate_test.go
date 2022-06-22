@@ -1,4 +1,4 @@
-package minioServer
+package miomanager
 
 import (
 	"fmt"
